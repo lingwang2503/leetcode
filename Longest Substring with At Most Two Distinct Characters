@@ -1,0 +1,19 @@
+
+    def lengthOfLongestSubstring(s:str) -> int:
+        if (len(s) == 0):
+            return 0
+        elif (len(set(s)) == 1):
+            return 1
+        longest_len = 0
+        i = 0
+        while (i < len(s)-1):
+            list_temp = [s[i]]
+            for j in range(i+1,len(s)):
+                    if s[j] not in list_temp:
+                        list_temp.append(s[j])
+                    else:
+                        break
+            if len(list_temp) > longest_len:
+                longest_len = len(list_temp)
+            i += 1
+        return longest_len
